@@ -25,11 +25,11 @@ let content
 if (loading) {
 return content = <p>Loading...</p>
 }
+
     return data.books.map(({ title, author }) => (
         <Card>
-        {error 
-            ? (<p>An error occured !</p>)
-            : (<div >
+    
+        <div >
     
           <h3>{title}</h3>    
           <br />
@@ -38,7 +38,7 @@ return content = <p>Loading...</p>
     
           <br />
     
-        </div>)}
+        </div>
         </Card>
     
       ));
