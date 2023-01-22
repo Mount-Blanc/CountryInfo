@@ -1,11 +1,11 @@
 import './App.css';
-import Display from './Display';
-import Earth from './assets/Earth.mp4'
-
+import Video from './Video'
+import Display from './Display'
 function App() {
   return (
     <div >
-     <video src={Earth} autoPlay loop/>
+      <Video/>
+      <Display/>
     </div>
   );
 }
