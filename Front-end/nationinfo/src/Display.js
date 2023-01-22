@@ -1,5 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 
+import Card from './Card';
+
 const GET_LOCATIONS = gql`
 
   query GetLocations {
@@ -24,7 +26,7 @@ if (loading) {
 return content = <p>Loading...</p>
 }
     return data.books.map(({ title, author }) => (
-        <>
+        <Card>
         {error 
             ? (<p>An error occured !</p>)
             : (<div >
@@ -37,7 +39,7 @@ return content = <p>Loading...</p>
           <br />
     
         </div>)}
-        </>
+        </Card>
     
       ));
     
