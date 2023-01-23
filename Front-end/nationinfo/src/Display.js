@@ -4,17 +4,20 @@ import Card from './Card';
 
 const GET_LOCATIONS = gql`
 
-  query GetLocations {
-
-    books {
-
-     title
-     author
-
+query GetCountryInfo {
+  Country {
+    name {
+      common
     }
-
+    flag
+    capital
+    currencies {
+      PEN {
+        name
+      }
+    }
   }
-
+}
 `;
 
 
@@ -26,15 +29,14 @@ if (loading) {
 return content = <p>Loading...</p>
 }
 
-    return data.books.map(({ title, author }) => (
+    return data.GetCountryInfo.map(({ name,flag,capital,currencies }) => (
         <Card>
     
         <div >
     
-          <h3>{title}</h3>    
+          <h3>{name}</h3>    
           <br />
         
-          <p>{author}</p>
     
           <br />
     

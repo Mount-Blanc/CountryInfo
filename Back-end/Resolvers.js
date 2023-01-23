@@ -1,3 +1,25 @@
+import axios from 'axios'
+ 
+ 
+
+
+const countries = [
+
+  {
+    name: {
+      common: 'Peru'
+    },
+    
+    capital: ['lima'],
+    currencies: {
+      PEN: {
+        name: "Peruvian sol"
+      }
+    },
+    flag:"🇵🇪"
+  },
+];
+
  const books = [
 
     {
@@ -26,8 +48,17 @@ export const resolvers = {
     Query: {
   
       books: () => books,
+      Country: () => countries
+    //    axios.get('https://restcountries.com/v3.1/name/peru')
+    //  .then(function (response) {
+    // console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //      console.log(error);
+    //   })
+    
+
+    // },
   
-    },
-  
-  };
- 
+  }
+}

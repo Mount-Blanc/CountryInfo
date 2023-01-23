@@ -13,6 +13,23 @@ export const typeDefs = `#graphql
 
   }
 
+  type country {
+    name:Countryname
+    flag:String
+    capital: [String]
+    currencies: Countrycurrencies
+   
+  }
+  type Countryname {
+    common:String
+  }
+  type Countrycurrencies {
+    PEN: Countrycurrenciesname
+  }
+  type Countrycurrenciesname {
+    name:String
+  }
+
 
   # The "Query" type is special: it lists all of the available queries that
 
@@ -23,6 +40,7 @@ export const typeDefs = `#graphql
   type Query {
 
     books: [Book]
+    Country:[country]
 
   }
 
