@@ -43,6 +43,18 @@ const countries = [
 
 // This resolver retrieves books from the "books" array above.
 
+// countries.forEach(obj => {
+//   Object.entries(obj).forEach(([key,value]) => {
+//     if (typeof value === 'object') {
+//       const keyvaluepairs = Object.entries(value);
+      
+//       const simpleObject= Object.fromEntries(keyvaluepairs)
+//       console.log(simpleObject)
+//     } 
+//   })
+// })
+
+
 export const resolvers = {
 
     Query: {

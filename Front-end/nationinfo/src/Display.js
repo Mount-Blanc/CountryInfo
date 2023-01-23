@@ -2,44 +2,48 @@ import { useQuery, gql } from '@apollo/client';
 
 import Card from './Card';
 
-const GET_LOCATIONS = gql`
+const GET_COUNTRY = gql`
 
-query GetCountryInfo {
+query GetCountry {
   Country {
     name {
       common
     }
     flag
-    capital
     currencies {
       PEN {
         name
       }
     }
+    capital
   }
 }
-`;
+  `;
 
 
 const Display = () => {
-    const { loading, error, data } = useQuery(GET_LOCATIONS);
+    const { loading, error, data } = useQuery(GET_COUNTRY);
 
+    
 let content
 if (loading) {
 return content = <p>Loading...</p>
 }
+if (error) {
+  return content = <p>An error has occured !</p>
+}
 
-    return data.GetCountryInfo.map(({ name,flag,capital,currencies }) => (
+    return data.Country.map(({ name,flag,capital,currencies}) => (
         <Card>
     
         <div >
-    
-          <h3>{name}</h3>    
-          <br />
-        
-    
-          <br />
-    
+      <div>
+          <h3>{name.common}</h3> 
+          <span>{flag}</span>   
+        </div>
+
+        <span>{capital}</span>  
+        <span>{currencies.PEN.name}</span>  
         </div>
         </Card>
     
