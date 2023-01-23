@@ -1,6 +1,7 @@
+import './Search.css'
 function Search () {
     return(
-        <div>
+        <div className='search'>
             <input type='text'placeholder='Type a Country Name'/>
         </div>
     )
