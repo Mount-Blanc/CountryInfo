@@ -1,7 +1,7 @@
 import './App.css';
 import Video from './Video'
-import Display from './Display'
 import Search from './Search';
+import Display from './Display';
 
 
 

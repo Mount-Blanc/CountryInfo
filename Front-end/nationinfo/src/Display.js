@@ -4,21 +4,20 @@ import Card from './Card';
 
 const GET_COUNTRY = gql`
 
-query GetCountry {
+query GetCountryInfo {
   Country {
     name {
       common
     }
     flag
+    capital
     currencies {
       PEN {
         name
       }
     }
-    capital
   }
-}
-  `;
+} `;
 
 
 const Display = () => {
@@ -29,20 +28,20 @@ let content
 if (loading) {
 return content = <p>Loading...</p>
 }
-if (error) {
-  return content = <p>An error has occured !</p>
-}
+// if (error) {
+//   return content = <p>An error has occured {error.status}!</p>
+// }
+console.log(data)
 
-    return data.Country.map(({ name,flag,capital,currencies}) => (
+    return data.Country.map(({name,flag,capital,currencies}) => (
         <Card>
-    
         <div >
       <div>
           <h3>{name.common}</h3> 
           <span>{flag}</span>   
         </div>
 
-        <span>{capital}</span>  
+        <span>{capital[0]}</span>  
         <span>{currencies.PEN.name}</span>  
         </div>
         </Card>

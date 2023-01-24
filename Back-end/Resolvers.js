@@ -3,22 +3,13 @@ import axios from 'axios'
  
 
 
-const countries = [
+const countries = 
 
   {
-    name: {
-      common: 'Peru'
-    },
-    
-    capital: ['lima'],
-    currencies: {
-      PEN: {
-        name: "Peruvian sol"
-      }
-    },
+  
     flag:"🇵🇪"
-  },
-];
+  }
+
 
  const books = [
 
@@ -60,17 +51,27 @@ export const resolvers = {
     Query: {
   
       books: () => books,
-      Country: () => countries
-    //    axios.get('https://restcountries.com/v3.1/name/peru')
-    //  .then(function (response) {
-    // console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //      console.log(error);
-    //   })
-    
+      Country:async () => 
+       await axios.get('https://restcountries.com/v3.1/name/peru')
+    .then( response => {
 
-    // },
+
+      const data=response.data[0]
+
+      const {name,flag,capital,currencies} =data
+
+      const Country = [{
+        name:name,
+        flag:flag,
+        capital:capital,
+        currencies:currencies,
+      }]
+      console.log(Country)
+      return Country
+    })
+        .catch( error => {
+         console.log(error);
+      })
   
   }
 }
