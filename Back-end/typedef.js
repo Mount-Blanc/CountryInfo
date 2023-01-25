@@ -44,8 +44,4 @@ type currencyname {
 
   }
 
-  type Mutation {
-    userInput(input:String!): countryinfo
-  }
-
 `;
