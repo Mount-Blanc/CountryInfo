@@ -17,19 +17,14 @@ export const typeDefs = `#graphql
     name:countryname
     flag:String
     capital:[String]
-    currencies:currencytype
+    continents:[String]
+    population:String
   }
 
 type countryname {
   common:String
 }
 
-type currencytype {
-  TWD:currencyname
-}
-type currencyname {
-  name:String
-}
 
 
   # The "Query" type is special: it lists all of the available queries that

@@ -61,13 +61,14 @@ export const resolvers = {
 
       const data=response.data[0]
 
-      const {name,flag,capital,currencies} =data
+      const {name,flag,capital,continents,population} =data
 
       const Country = [{
      name:name,
      flag:flag,
      capital:capital,
-     currencies:currencies,
+     continents:continents,
+     population:population
       }]
 
       return Country
