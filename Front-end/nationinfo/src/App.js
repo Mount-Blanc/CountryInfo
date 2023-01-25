@@ -10,7 +10,6 @@ function App() {
     <div >
       <Video/>
       <Search/>
-      <Display/>
     </div>
   );
 }
