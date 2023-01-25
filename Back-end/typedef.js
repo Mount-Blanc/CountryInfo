@@ -19,6 +19,7 @@ export const typeDefs = `#graphql
     capital:[String]
     continents:[String]
     population:String
+    timezones:[String]
   }
 
 type countryname {
