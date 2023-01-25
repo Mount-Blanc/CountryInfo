@@ -1,33 +1,35 @@
 import './Search.css'
 import { useState } from 'react';
 import Display from './Display';
-
-
-
+import { useContext } from 'react';
+import { Context } from './context';
 
 function Search () {
-let content="mexico"
+const countryValue = useContext(Context)
 
     const [userinput, setuserinput] = useState('')
-    const [displayInfo, setdisplayInfo] = useState(false)
-
+    const [isSubmitted, setisSubmitted] = useState(false)
 
     const inputHandler = (event) => {
         setuserinput(event.target.value)
+
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
-        if (userinput != '') {
-            setdisplayInfo(userinput)
-        }
-        setuserinput('')
+       countryValue.countryValue=userinput
+        console.log(countryValue)
+         setisSubmitted(true)
+
+         setuserinput('')
+
+       
     }
+
     return(
         <>
         <form onSubmit={submitHandler}className='search'>
             <input 
-            value={userinput}
             onChange={inputHandler}
             type='text'
             placeholder='Type a Country Name'/>
@@ -35,7 +37,7 @@ let content="mexico"
 
          
         </form>
-    <Display countryname={content}/>
+    {isSubmitted && <Display/> } 
     </>
     )
 }

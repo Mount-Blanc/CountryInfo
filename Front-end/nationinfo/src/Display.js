@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
-import { useState } from 'react';
-
+import { useContext } from 'react';
+import { Context } from './context';
 import Card from './Card';
 
 const GET_COUNTRY = gql`
@@ -19,10 +19,13 @@ query GET_COUNTRY ($userCountry: String!) {
 }`;
 
 
-const Display = (props) => {
-  const [user, setuser] =useState('mexico')
-    const { loading, error, data } = useQuery(GET_COUNTRY,
-      {variables: {userCountry:user}});
+const Display = () => {
+  const ctx=useContext(Context)
+
+  const { loading, error, data } = useQuery(GET_COUNTRY,
+      {variables: {userCountry:`${ctx.countryValue}`}});
+
+
 
   let content
 if (loading) {
@@ -32,6 +35,8 @@ return content = <p>Loading...</p>
 //   return content = <p>An error has occured {error.status}!</p>
 // }
 console.log(data)
+
+
     return data.Country.map(({name,flag,capital}) => (
         <Card>
         <div >
