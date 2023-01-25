@@ -45,8 +45,30 @@ const countries =
 //   })
 // })
 
-
+let url
 export const resolvers = {
+    Mutation: {
+      userInput:async (parent,args) => {
+        const input= args.input
+         await axios.get(`https://restcountries.com/v3.1/name/${input}`)
+        .then (response => {
+
+      const data=response.data[0]
+
+      const {name,flag,capital,currencies} =data
+
+      const SortedCountryData = {
+        flag:flag
+      
+      }
+      console.log(SortedCountryData)
+      return SortedCountryData
+      
+    })
+  }},
+
+
+
 
     Query: {
   
@@ -61,12 +83,13 @@ export const resolvers = {
       const {name,flag,capital,currencies} =data
 
       const Country = [{
-        name:name,
-        flag:flag,
-        capital:capital,
-        currencies:currencies,
+     name:name,
+     flag:flag,
+     capital:capital,
+     currencies:currencies
+     
       }]
-      console.log(Country)
+
       return Country
     })
         .catch( error => {

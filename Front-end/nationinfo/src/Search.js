@@ -1,15 +1,24 @@
 import './Search.css'
 import { useState } from 'react';
 
+
+
+
+
+
+
 function Search () {
     const [userinput, setuserinput] = useState('')
 
     const inputHandler = (event) => {
         setuserinput(event.target.value)
     }
-
+    const submitHandler = (event) => {
+        event.preventDefault();
+    }
+    console.log(data)
     return(
-        <div className='search'>
+        <form onSubmit={submitHandler}className='search'>
             <input 
             value={userinput}
             onChange={inputHandler}
@@ -18,7 +27,7 @@ function Search () {
             <button>Search</button>
 
          {/* /* /* {userinput && <Display/> } */}
-        </div>
+        </form>
     
     )
 }

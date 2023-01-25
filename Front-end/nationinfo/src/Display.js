@@ -31,7 +31,6 @@ return content = <p>Loading...</p>
 // if (error) {
 //   return content = <p>An error has occured {error.status}!</p>
 // }
-console.log(data)
 
     return data.Country.map(({name,flag,capital,currencies}) => (
         <Card>

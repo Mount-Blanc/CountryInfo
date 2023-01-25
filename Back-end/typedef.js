@@ -13,7 +13,7 @@ export const typeDefs = `#graphql
 
   }
 
-  type country {
+  type countryinfo {
     name:countryname
     flag:String
     capital:[String]
@@ -40,8 +40,12 @@ type currencyname {
   type Query {
 
     books: [Book]
-    Country:[country]
+    Country:[countryinfo]
 
+  }
+
+  type Mutation {
+    userInput(input:String!): countryinfo
   }
 
 `;
