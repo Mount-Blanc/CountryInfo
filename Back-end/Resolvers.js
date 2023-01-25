@@ -45,17 +45,19 @@ const countries =
 //   })
 // })
 
-let url
 export const resolvers = {
    
 
     Query: {
   
       books: () => books,
-      Country:async () => 
-       await axios.get('https://restcountries.com/v3.1/name/peru')
-    .then( response => {
 
+
+
+
+      Country:async (parent,{userCountry}) => 
+        await axios.get(`https://restcountries.com/v3.1/name/${userCountry}`)
+    .then( response => {
 
       const data=response.data[0]
 
@@ -65,8 +67,7 @@ export const resolvers = {
      name:name,
      flag:flag,
      capital:capital,
-     currencies:currencies
-     
+     currencies:currencies,
       }]
 
       return Country
@@ -75,5 +76,5 @@ export const resolvers = {
          console.log(error);
       })
   
-  }
-}
+  
+}}

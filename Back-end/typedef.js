@@ -17,14 +17,15 @@ export const typeDefs = `#graphql
     name:countryname
     flag:String
     capital:[String]
-    currencies:PEN
+    currencies:currencytype
   }
+
 type countryname {
   common:String
 }
 
-type PEN {
-  PEN:currencyname
+type currencytype {
+  TWD:currencyname
 }
 type currencyname {
   name:String
@@ -40,7 +41,7 @@ type currencyname {
   type Query {
 
     books: [Book]
-    Country:[countryinfo]
+    Country(userCountry:String!):[countryinfo]
 
   }
 

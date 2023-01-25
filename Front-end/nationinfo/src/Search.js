@@ -15,8 +15,8 @@ function Search () {
     }
     const submitHandler = (event) => {
         event.preventDefault();
+        setuserinput('')
     }
-    console.log(data)
     return(
         <form onSubmit={submitHandler}className='search'>
             <input 

@@ -4,8 +4,8 @@ import Card from './Card';
 
 const GET_COUNTRY = gql`
 
-query GetCountryInfo {
-  Country {
+query GetCountryInfo($userCountry:String!) {
+  Country(userCountry: $userCountry) {
     name {
       common
     }
@@ -21,7 +21,7 @@ query GetCountryInfo {
 
 
 const Display = () => {
-    const { loading, error, data } = useQuery(GET_COUNTRY);
+    const { loading, error, data } = useQuery(GET_COUNTRY, {variable:{userCountry:"mexico"}});
 
     
 let content
