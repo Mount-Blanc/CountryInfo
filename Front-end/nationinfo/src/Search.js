@@ -16,6 +16,9 @@ const ctx = useContext(Context)
 
     const submitHandler = (event) => {
         event.preventDefault();
+        if (userinput === '') {
+            return
+        }
         ctx.countryValue=userinput
         setisSubmitted(true)
 
