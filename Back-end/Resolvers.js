@@ -71,11 +71,10 @@ export const resolvers = {
      population:population,
      timezones:timezones
       }]
-
       return Country
     })
         .catch( error => {
-         console.log(error);
+          console.log("error");
       })
   
   

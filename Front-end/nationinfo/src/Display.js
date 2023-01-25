@@ -20,12 +20,19 @@ query GET_COUNTRY ($userCountry: String!) {
 
 
 const Display = () => {
-  const ctx=useContext(Context)
+     const ctx=useContext(Context)
+     const userinput =ctx.countryValue
 
   const { loading, error, data } = useQuery(GET_COUNTRY,
-      {variables: {userCountry:`${ctx.countryValue}`}});
+      {variables: {userCountry:`${userinput}`}} ,
+      {
 
-
+        fetchPolicy: 'network-only', // Used for first execution
+      
+        nextFetchPolicy: 'cache-first', // Used for subsequent executions
+      
+      });
+     
 
   let content
 if (loading) {

@@ -5,21 +5,19 @@ import { useContext } from 'react';
 import { Context } from './context';
 
 function Search () {
-const countryValue = useContext(Context)
+const ctx = useContext(Context)
 
     const [userinput, setuserinput] = useState('')
     const [isSubmitted, setisSubmitted] = useState(false)
 
     const inputHandler = (event) => {
         setuserinput(event.target.value)
-
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
-       countryValue.countryValue=userinput
-        console.log(countryValue)
-         setisSubmitted(true)
+        ctx.countryValue=userinput
+        setisSubmitted(true)
 
          setuserinput('')
 
@@ -30,6 +28,7 @@ const countryValue = useContext(Context)
         <>
         <form onSubmit={submitHandler}className='search'>
             <input 
+            value={userinput}
             onChange={inputHandler}
             type='text'
             placeholder='Type a Country Name'/>
@@ -37,7 +36,7 @@ const countryValue = useContext(Context)
 
          
         </form>
-    {isSubmitted && <Display/> } 
+     {isSubmitted && <Display/> }
     </>
     )
 }
