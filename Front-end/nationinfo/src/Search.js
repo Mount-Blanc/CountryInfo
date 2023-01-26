@@ -19,6 +19,7 @@ const ctx = useContext(Context)
         if (userinput === '') {
             return
         }
+        setisSubmitted(false)
         ctx.countryValue=userinput
         setisSubmitted(true)
 
@@ -29,16 +30,12 @@ const ctx = useContext(Context)
 
     return(
         <>
-        <form onSubmit={submitHandler}className='search'>
-            <input 
-            value={userinput}
-            onChange={inputHandler}
-            type='text'
-            placeholder='Type a Country Name'/>
-            <button>Search</button>
-
-         
-        </form>
+       <select
+      value={userinput}
+      onChange={(event) => setuserinput(event.target.value)}
+    >
+        <option>{"america"}</option>
+    </select>
      {isSubmitted && <Display/> }
     </>
     )

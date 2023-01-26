@@ -69,7 +69,6 @@ export const resolvers = {
      capital:capital,
      continents:continents,
      population:population,
-     timezones:timezones
       }]
       return Country
     })

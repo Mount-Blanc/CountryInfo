@@ -44,7 +44,7 @@ return content = <p>Loading...</p>
 console.log(data)
 
 
-    return data.Country.map(({name,flag,capital}) => (
+    return data.Country.map(({name,flag,capital,continents,population}) => (
         <Card>
         <div >
       <div>
@@ -53,6 +53,10 @@ console.log(data)
         </div>
 
         <span>{capital[0]}</span>  
+        <div>{continents}</div>  
+        <div>{population}</div>  
+
+
         </div>
         </Card>
     
