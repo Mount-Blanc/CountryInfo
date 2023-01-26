@@ -18,12 +18,12 @@ query GET_COUNTRY ($userCountry: String!) {
 }`;
 
 
-const Display = () => {
+const Display = ({userinput}) => {
      const ctx=useContext(Context)
-     const userinput =ctx.countryValue
+    //  const userinput =ctx.countryValue
 
   const { loading, error, data } = useQuery(GET_COUNTRY,
-      {variables: {userCountry:`${"united"}`}} ,
+      {variables: {userCountry:`${userinput}`}} ,
       {
 
         fetchPolicy: 'network-only', // Used for first execution

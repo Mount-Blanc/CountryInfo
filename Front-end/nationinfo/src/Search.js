@@ -28,11 +28,16 @@ const [isSubmitted, setisSubmitted] = useState(false)
         setuserinput(event.target.value)
         console.log(userinput)
     }
-   
+
+if (loading) {
+  return <p>Loading...</p>
+}
+
+
 console.log(data)
     return(
       <>
-      <div className='search'>
+    <div className='search'>
         <select value={userinput} onChange={selectHandler}>
            {data.Select.map( ({common}) => (
          <option value={common}>
@@ -42,8 +47,8 @@ console.log(data)
     } 
       </select>      
        </div>
-
-     <Display/> </>
+     <Display userinput={userinput}/> </>
     )
+  
 }
 export default Search
