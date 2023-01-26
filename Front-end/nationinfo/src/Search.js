@@ -19,6 +19,7 @@ query List_COUNTRIES {
 
 function Search () {
 const ctx = useContext(Context)
+
    const { data, loading, error } = useQuery(LIST_COUNTRIES)
 const [userinput, setuserinput] = useState('Togo')
 const [isSubmitted, setisSubmitted] = useState(false)
@@ -27,19 +28,22 @@ const [isSubmitted, setisSubmitted] = useState(false)
         setuserinput(event.target.value)
         console.log(userinput)
     }
+   
 console.log(data)
-
     return(
       <>
+      <div className='search'>
         <select value={userinput} onChange={selectHandler}>
-        {data.Select.map(({common}) => (
-          <option value={common}>
-            {common}
-          </option>
-        ))}
-      </select>  
-     <Display/> 
-     </>
+           {data.Select.map( ({common}) => (
+         <option value={common}>
+         {common}
+        </option>
+    ))
+    } 
+      </select>      
+       </div>
+
+     <Display/> </>
     )
 }
 export default Search
