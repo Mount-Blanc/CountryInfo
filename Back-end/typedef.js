@@ -26,11 +26,15 @@ type countryname {
   common:String
 }
 
+
+
+
 type countrylist {
   name:officialname
 }
 
 type officialname {
+  common:String
   official:String
 }
 

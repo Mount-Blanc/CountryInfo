@@ -52,23 +52,22 @@ export const resolvers = {
   
       books: () => books,
 
-      Select: async () => {
+      Select: async () => 
         await axios.get(`https://restcountries.com/v3.1/all`)
         .then( response => {
     
-          const data=response.data[0]
-    
-          const {name} =data
-    
-          const CountryNames = [{
-         name:name
-          }]
-          return CountryNames
-        })
+          const data=response.data
+          
+          const dataarray=[data]
+            const listofnames= data.map(object => object.name)
+          console.log(listofnames)
+     })
+          
+        
             .catch( error => {
               console.log("error");
           })
-      },
+      ,
 
 
       Country:async (parent,{userCountry}) => 
@@ -77,7 +76,7 @@ export const resolvers = {
 
       const data=response.data[0]
 
-      const {name,flag,capital,continents,population,timezones} =data
+      const {name,flag,capital,continents,population} =data
 
       const Country = [{
      name:name,

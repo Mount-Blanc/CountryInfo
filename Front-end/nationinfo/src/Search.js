@@ -9,9 +9,11 @@ import { useQuery, gql } from '@apollo/client';
 
 const LIST_COUNTRIES = gql`
   {
-    countries {
-      name
-      code
+    Select {
+      name {
+        official
+      }
+      
     }
   }
 `;
@@ -20,9 +22,9 @@ const list = ['america','germany']
 
 function Search () {
 const ctx = useContext(Context)
-// const { loading, error, data } = useQuery(LIST_COUNTRIES)
+//  const { loading, error, data } = useQuery(LIST_COUNTRIES)
 
-const [userinput, setuserinput] = useState(list[0])
+const [userinput, setuserinput] = useState('')
 const [isSubmitted, setisSubmitted] = useState(false)
 
     const selectHandler = (event) => {
@@ -32,20 +34,14 @@ const [isSubmitted, setisSubmitted] = useState(false)
 
    
     return(
-        <>
-       <select
-      value={userinput}
-      onChange={selectHandler}>
-        {list.map((option, index) => (
-        <option key={index} value={option}>{option}</option>
-
+        <select value={userinput} onChange={event => setuserinput(event.target.value)}>
+        {data.Select.map(listofnames => (
+          <option value={listofnames}>
+            {listofnames}
+          </option>
         ))}
-
-
-
-    </select>
-     {isSubmitted && <Display/> }
-    </>
+      </select>
+    //  {isSubmitted && <Display/> }
     )
 }
 export default Search
