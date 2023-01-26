@@ -19,7 +19,6 @@ export const typeDefs = `#graphql
     capital:[String]
     continents:[String]
     population:String
-    timezones:[String]
   }
 
 type countryname {
@@ -30,13 +29,9 @@ type countryname {
 
 
 type countrylist {
-  name:officialname
+  official: String
 }
 
-type officialname {
-  common:String
-  official:String
-}
 
   # The "Query" type is special: it lists all of the available queries that
 

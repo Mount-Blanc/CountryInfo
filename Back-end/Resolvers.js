@@ -60,7 +60,7 @@ export const resolvers = {
           
           const dataarray=[data]
             const listofnames= data.map(object => object.name)
-          console.log(listofnames)
+          return listofnames
      })
           
         
