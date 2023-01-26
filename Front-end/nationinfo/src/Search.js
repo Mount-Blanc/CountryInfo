@@ -19,16 +19,8 @@ query List_COUNTRIES {
 
 function Search () {
 const ctx = useContext(Context)
-   const { data, loading, error } = useQuery(LIST_COUNTRIES,{
-    
-
-      fetchPolicy: 'network-only', // Used for first execution
-    
-      nextFetchPolicy: 'cache-first', // Used for subsequent executions
-    
-    });
-
-const [userinput, setuserinput] = useState('Bouvet Island')
+   const { data, loading, error } = useQuery(LIST_COUNTRIES)
+const [userinput, setuserinput] = useState('Togo')
 const [isSubmitted, setisSubmitted] = useState(false)
 
     const selectHandler = (event) => {
@@ -36,15 +28,16 @@ const [isSubmitted, setisSubmitted] = useState(false)
         console.log(userinput)
     }
 console.log(data)
+
     return(
       <>
-        {/* <select value={userinput} onChange={selectHandler}>
-        {data.Select.map((official) => (
-          <option value={official}>
-            {official}
+        <select value={userinput} onChange={selectHandler}>
+        {data.Select.map(({common}) => (
+          <option value={common}>
+            {common}
           </option>
         ))}
-      </select>  */}
+      </select>  
      <Display/> 
      </>
     )
