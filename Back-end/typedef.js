@@ -29,7 +29,7 @@ type countryname {
 
 
 type countrylist {
-  official: String
+  common: String
 }
 
 

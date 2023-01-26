@@ -10,7 +10,8 @@ import { useQuery, gql } from '@apollo/client';
 const LIST_COUNTRIES = gql`
 query List_COUNTRIES {
   Select {
-    official
+    common
+    
   }
 }
 `;
@@ -18,7 +19,14 @@ query List_COUNTRIES {
 
 function Search () {
 const ctx = useContext(Context)
-   const { data, loading, error } = useQuery(LIST_COUNTRIES)
+   const { data, loading, error } = useQuery(LIST_COUNTRIES,{
+    
+
+      fetchPolicy: 'network-only', // Used for first execution
+    
+      nextFetchPolicy: 'cache-first', // Used for subsequent executions
+    
+    });
 
 const [userinput, setuserinput] = useState('Bouvet Island')
 const [isSubmitted, setisSubmitted] = useState(false)
@@ -27,17 +35,18 @@ const [isSubmitted, setisSubmitted] = useState(false)
         setuserinput(event.target.value)
         console.log(userinput)
     }
-    console.log(data)
+console.log(data)
     return(
       <>
-        {/* { <select value={userinput} onChange={selectHandler}>
-        {data.Select.map((countrynames) => (
-          <option value={countrynames.common}>
-            {countrynames.common}
+        {/* <select value={userinput} onChange={selectHandler}>
+        {data.Select.map((official) => (
+          <option value={official}>
+            {official}
           </option>
         ))}
-      </select> } */}
-     <Display/> </>
+      </select>  */}
+     <Display/> 
+     </>
     )
 }
 export default Search
