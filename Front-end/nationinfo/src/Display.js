@@ -11,7 +11,6 @@ query GET_COUNTRY ($userCountry: String!) {
       common
     }
     flag
-    timezones
     population
     capital
     continents
@@ -24,7 +23,7 @@ const Display = () => {
      const userinput =ctx.countryValue
 
   const { loading, error, data } = useQuery(GET_COUNTRY,
-      {variables: {userCountry:`${userinput}`}} ,
+      {variables: {userCountry:`${"united"}`}} ,
       {
 
         fetchPolicy: 'network-only', // Used for first execution
@@ -33,7 +32,7 @@ const Display = () => {
       
       });
      
-
+console.log(data)
   let content
 if (loading) {
 return content = <p>Loading...</p>

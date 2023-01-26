@@ -14,29 +14,6 @@ const client = new ApolloClient({
 
 });
 
-client
-
-  .query({
-
-    query: gql`
-
-      query GetLocations {
-
-        books {
-
-          title
-          author
-
-        }
-
-      }
-
-    `,
-
-  })
-
-  .then((result) => console.log(result));
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
