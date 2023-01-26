@@ -26,7 +26,13 @@ type countryname {
   common:String
 }
 
+type countrylist {
+  name:officialname
+}
 
+type officialname {
+  official:String
+}
 
   # The "Query" type is special: it lists all of the available queries that
 
@@ -38,6 +44,7 @@ type countryname {
 
     books: [Book]
     Country(userCountry:String!):[countryinfo]
+    Select:[countrylist]
 
   }
 

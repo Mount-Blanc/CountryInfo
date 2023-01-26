@@ -52,7 +52,23 @@ export const resolvers = {
   
       books: () => books,
 
-
+      Select: async () => {
+        await axios.get(`https://restcountries.com/v3.1/all`)
+        .then( response => {
+    
+          const data=response.data[0]
+    
+          const {name} =data
+    
+          const CountryNames = [{
+         name:name
+          }]
+          return CountryNames
+        })
+            .catch( error => {
+              console.log("error");
+          })
+      },
 
 
       Country:async (parent,{userCountry}) => 
