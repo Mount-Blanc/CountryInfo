@@ -2,7 +2,7 @@ import { useQuery, gql } from '@apollo/client';
 import { useContext } from 'react';
 import { Context } from './context';
 import Card from './Card';
-
+import './Display.css'
 const GET_COUNTRY = gql`
 
 query GET_COUNTRY ($userCountry: String!) {
@@ -44,8 +44,9 @@ console.log(data)
 
 
     return data.Country.map(({name,flag,capital,continents,population}) => (
-        <Card>
+        
         <div >
+          <Card className='display'>
       <div>
           <h3>{name.common}</h3> 
           <span>{flag}</span>   
@@ -56,8 +57,9 @@ console.log(data)
         <div>{population}</div>  
 
 
-        </div>
-        </Card>
+         </Card>
+          </div>
+      
     
       ));
     
