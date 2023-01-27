@@ -31,6 +31,7 @@ type countryname {
 
 type countrylist {
   common: String
+  official: String
 }
 
 
