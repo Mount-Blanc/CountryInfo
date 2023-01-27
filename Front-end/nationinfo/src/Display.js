@@ -24,15 +24,7 @@ const Display = ({userinput}) => {
     //  const userinput =ctx.countryValue
 
   const { loading, error, data } = useQuery(GET_COUNTRY,
-      {variables: {userCountry:`${userinput}`}} ,
-      {
-
-        fetchPolicy: 'network-only', // Used for first execution
-      
-        nextFetchPolicy: 'cache-first', // Used for subsequent executions
-      
-      });
-     
+      {variables: {userCountry:`${userinput}`}} )
 console.log(data)
   let content
 if (loading) {
@@ -45,19 +37,17 @@ console.log(data)
 
     return data.Country.map(({name,flag,capital,continents,population}) => (
         
-        <div >
-          <Card className='display'>
+          <Card key={name.official} className='display'>
       <div>
           <h3>{flag}{name.common}</h3> 
         </div>
-        <div>Official:{name.official}</div>
+        <div>Official Name:{name.official}</div>
         <div>Capital:{capital === null ?<p>None</p> :capital[0]}</div>  
         <div>Continent:{continents}</div>  
         <div>Population:{population}</div>  
 
 
          </Card>
-          </div>
       
     
       ));

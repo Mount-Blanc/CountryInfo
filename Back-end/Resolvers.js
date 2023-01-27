@@ -84,7 +84,7 @@ export const resolvers = {
      continents:continents,
      population:population,
       }]
-      console.log(Country.name)
+      console.log(Country)
      return(Country)
     })
         .catch( error => {

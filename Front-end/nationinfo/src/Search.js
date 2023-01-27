@@ -20,8 +20,15 @@ query List_COUNTRIES {
 function Search () {
 const ctx = useContext(Context)
 
-   const { data, loading, error } = useQuery(LIST_COUNTRIES)
-const [userinput, setuserinput] = useState('Togo')
+   const { data, loading, error } = useQuery(LIST_COUNTRIES,
+    {
+
+      fetchPolicy: 'network-only', // Used for first execution
+    
+      nextFetchPolicy: 'cache-first', // Used for subsequent executions
+    
+    });
+const [userinput, setuserinput] = useState('United States')
 const [isSubmitted, setisSubmitted] = useState(false)
 
     const selectHandler = (event) => {
@@ -33,13 +40,13 @@ if (loading) {
   return <p>Loading...</p>
 }
 
-
+console.log(data)
     return(
       <>
     <div className='search'>
         <select value={userinput} onChange={selectHandler}>
-           {data.Select.map( ({common}) => (
-         <option value={common}>
+           {data.Select.map( ({common,official}) => (
+         <option key={official} value={common}>
          {common}
         </option>
     ))
