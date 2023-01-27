@@ -21,27 +21,25 @@ query List_COUNTRIES {
 function Search () {
 const ctx = useContext(Context)
 
-   const { data, loading, error } = useQuery(LIST_COUNTRIES,
-    {
+   const { data, loading, error } = useQuery(LIST_COUNTRIES)
+    // {
 
-      fetchPolicy: 'network-only', // Used for first execution
+    //   fetchPolicy: 'network-only', // Used for first execution
     
-      nextFetchPolicy: 'cache-first', // Used for subsequent executions
+    //   nextFetchPolicy: 'cache-first', // Used for subsequent executions
     
-    });
+    // });
 const [userinput, setuserinput] = useState('United States')
 const [isSubmitted, setisSubmitted] = useState(false)
 
     const selectHandler = (event) => {
         setuserinput(event.target.value)
-        console.log(userinput)
     }
 
 if (loading) {
   return <p>Loading...</p>
 }
 
-console.log(data)
     return(
       <>
     <div className='search'>

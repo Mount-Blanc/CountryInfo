@@ -25,7 +25,7 @@ const Display = ({userinput}) => {
 
   const { loading, error, data } = useQuery(GET_COUNTRY,
       {variables: {userCountry:`${userinput}`}} )
-console.log(data)
+
   let content
 if (loading) {
 return content = <p>Loading...</p>
@@ -33,7 +33,6 @@ return content = <p>Loading...</p>
 // if (error) {
 //   return content = <p>An error has occured {error.status}!</p>
 // }
-console.log(data)
 
     return data.Country.map(({name,flag,capital,continents,population}) => (
         
@@ -42,7 +41,7 @@ console.log(data)
           <h3>{flag}{name.common}</h3> 
         </div>
         <div>Official Name:{name.official}</div>
-        <div>Capital:{capital === null ?<p>None</p> :capital[0]}</div>  
+        <div>Capital:{capital === null ?<p>N/A</p> :capital[0]}</div>  
         <div>Continent:{continents}</div>  
         <div>Population:{population}</div>  
 
