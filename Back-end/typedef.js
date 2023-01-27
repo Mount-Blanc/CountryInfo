@@ -23,6 +23,7 @@ export const typeDefs = `#graphql
 
 type countryname {
   common:String
+  official:String
 }
 
 

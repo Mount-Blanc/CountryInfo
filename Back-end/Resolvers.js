@@ -59,7 +59,6 @@ export const resolvers = {
           const data=response.data
           
            const listofnames= data.map(object => object.name)
-           console.log(listofnames)
           return( listofnames)
      })
           
@@ -85,7 +84,7 @@ export const resolvers = {
      continents:continents,
      population:population,
       }]
-      console.log(Country)
+      console.log(Country.name)
      return(Country)
     })
         .catch( error => {

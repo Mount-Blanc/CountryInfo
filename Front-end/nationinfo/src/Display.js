@@ -9,6 +9,7 @@ query GET_COUNTRY ($userCountry: String!) {
   Country(userCountry: $userCountry) {
     name {
       common
+      official
     }
     flag
     population
@@ -49,8 +50,8 @@ console.log(data)
       <div>
           <h3>{flag}{name.common}</h3> 
         </div>
-
-        <span>Capital:{capital[0]}</span>  
+        <div>Official:{name.official}</div>
+        <div>Capital:{capital === null ?<p>None</p> :capital[0]}</div>  
         <div>Continent:{continents}</div>  
         <div>Population:{population}</div>  
 

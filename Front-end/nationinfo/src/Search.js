@@ -34,7 +34,6 @@ if (loading) {
 }
 
 
-console.log(data)
     return(
       <>
     <div className='search'>
