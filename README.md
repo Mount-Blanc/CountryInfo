@@ -7,4 +7,4 @@ Apollo-Express-Server
 Axios
 
 # API Used
-Restful Api : https://restcountries.com/#rest-countries
+Restful Api : https://restcountries.com
