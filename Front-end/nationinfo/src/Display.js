@@ -42,19 +42,17 @@ return content = <p>Loading...</p>
 // }
 console.log(data)
 
-
     return data.Country.map(({name,flag,capital,continents,population}) => (
         
         <div >
           <Card className='display'>
       <div>
-          <h3>{name.common}</h3> 
-          <span>{flag}</span>   
+          <h3>{flag}{name.common}</h3> 
         </div>
 
-        <span>{capital[0]}</span>  
-        <div>{continents}</div>  
-        <div>{population}</div>  
+        <span>Capital:{capital[0]}</span>  
+        <div>Continent:{continents}</div>  
+        <div>Population:{population}</div>  
 
 
          </Card>
