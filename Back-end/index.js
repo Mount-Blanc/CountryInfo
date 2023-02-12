@@ -53,10 +53,10 @@ await server.start();
 
 app.get('/', function(req,res) {
   res.sendFile(
-    path.join(__dirname, "../Front-end/build/index.html"),
+    path.join(__dirname, "../Front-end/nationinfo/build/index.html"),
    function(err){
     if (err) {
-      res.status(500).send(err)
+      res.status(500).send("check get")
     }}
   )
 })
