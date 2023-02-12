@@ -51,6 +51,8 @@ await server.start();
 
 // and our expressMiddleware function.
 
+app.use(express.static(path.join(__dirname, '../Front-end/nationinfo/build')))
+
 app.get('/', function(req,res) {
   res.sendFile(
     path.join(__dirname, "../Front-end/nationinfo/build/index.html"),
@@ -85,7 +87,7 @@ app.use(
 
 // Modified server startup
 const PORT = process.env.PORT || 4000
-await new Promise((resolve) => httpServer.listen(PORT , resolve));
+await new Promise((resolve) => httpServer.listen({PORT} , resolve));
 
 
 console.log(`🚀 Server ready at http://localhost:4000/`);
