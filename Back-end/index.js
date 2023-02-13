@@ -14,11 +14,24 @@ import bodyParser from 'body-parser';
 import {resolvers} from './Resolvers.js'
 import { typeDefs } from './typedef.js';
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
 
 // Required logic for integrating with Express
 
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const publicPath = path.join(__dirname, '../Front-end/nationinfo', 'build');
+
+app.use(express.static(publicPath));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 // Our httpServer handles incoming requests to our Express app.
 
 // Below, we tell Apollo Server to "drain" this httpServer,
@@ -51,17 +64,7 @@ await server.start();
 
 // and our expressMiddleware function.
 
-app.use(express.static(path.join(__dirname, '../Front-end/nationinfo/build')))
 
-app.get('/', function(req,res) {
-  res.sendFile(
-    path.join(__dirname, "../Front-end/nationinfo/build/index.html"),
-   function(err){
-    if (err) {
-      res.status(500).send("check get")
-    }}
-  )
-})
 
 
 app.use(
@@ -86,8 +89,8 @@ app.use(
 
 
 // Modified server startup
-const PORT = process.env.PORT || 4000
-await new Promise((resolve) => httpServer.listen({PORT} , resolve));
+const port = process.env.PORT || 4000
+await new Promise((resolve) => httpServer.listen(port , resolve));
 
 
 console.log(`🚀 Server ready at http://localhost:4000/`);
