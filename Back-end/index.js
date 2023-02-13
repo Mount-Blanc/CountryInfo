@@ -29,7 +29,7 @@ const publicPath = path.join(__dirname, '../Front-end/nationinfo', 'build');
 
 app.use(express.static(publicPath));
 
-app.get('*', (req, res) => {
+app.get('*',cors(), (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 // Our httpServer handles incoming requests to our Express app.
