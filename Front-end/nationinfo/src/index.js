@@ -8,7 +8,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client
 
 const client = new ApolloClient({
 
-  uri: `{process.env.PORT}/graphql`,
+  uri: "https://countryinfo.herokuapp.com/graphql",
 
   cache: new InMemoryCache(),
 
