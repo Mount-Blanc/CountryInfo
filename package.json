@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd Back-end && npm install && node index.js",
     "build": "cd Front-end/nationinfo && npm run build",
-    "install": "cd Front-end/nationinfo && npm install"
+    "install": "cd Front-end/nationinfo && npm install" 
     },
   "repository": {
     "type": "git",
