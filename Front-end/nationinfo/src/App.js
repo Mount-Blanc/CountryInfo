@@ -1,7 +1,6 @@
 import './App.css';
-import Video from './Video'
-import Search from './Search';
-import Display from './Display';
+import Video from './Components/media/Video'
+import Search from './Components/Search';
 import { Contextprovider } from './context';
 
 

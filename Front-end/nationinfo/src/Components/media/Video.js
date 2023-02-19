@@ -1,4 +1,4 @@
-import Earth from './assets/Earth.mp4'
+import Earth from '../../assets/Earth.mp4'
 
 
 function Video () {

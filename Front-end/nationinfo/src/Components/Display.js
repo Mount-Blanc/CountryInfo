@@ -1,8 +1,9 @@
 import { useQuery, gql } from "@apollo/client";
 import { useContext } from "react";
-import { Context } from "./context";
-import Card from "./Card";
+import { Context } from "../context";
+import Card from "./UI/Card";
 import "./Display.css";
+import Loading from "./Loading";
 const GET_COUNTRY = gql`
   query GET_COUNTRY($userCountry: String!) {
     Country(userCountry: $userCountry) {
@@ -26,9 +27,9 @@ const Display = ({ userinput }) => {
     variables: { userCountry: `${userinput}` },
   });
 
-  let content;
+ let content;
   if (loading) {
-    return (content = <p>Loading...</p>);
+    return <Loading/>
   }
   // if (error) {
   //   return content = <p>An error has occured {error.status}!</p>

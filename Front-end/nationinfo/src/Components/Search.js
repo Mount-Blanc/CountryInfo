@@ -2,8 +2,9 @@ import "./Search.css";
 import { useState } from "react";
 import Display from "./Display";
 import { useContext } from "react";
-import { Context } from "./context";
+import { Context } from "../context";
 import { useQuery, gql } from "@apollo/client";
+import Loading from "./Loading";
 
 const LIST_COUNTRIES = gql`
   query List_COUNTRIES {
@@ -33,7 +34,7 @@ function Search() {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading/>;
   }
 
   return (
