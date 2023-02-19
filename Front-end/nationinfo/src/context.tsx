@@ -1,7 +1,11 @@
 import React from 'react'
 export const Context = React.createContext({})
 
-export const Contextprovider = (props) => {
+interface ContextProps {
+    children?: React.ReactNode;
+}
+
+export const Contextprovider = (props:ContextProps) => {
 
 return (
    

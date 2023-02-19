@@ -18,8 +18,23 @@ const GET_COUNTRY = gql`
     }
   }
 `;
+interface DisplayProps {
+  userinput: string;
+}
 
-const Display = ({ userinput }) => {
+interface Country {
+  name: name;
+  flag: string;
+  capital: string;
+  continents: string[];
+  population: number;
+}
+interface name {
+  common:string;
+  official:string;
+}
+
+const Display: React.FC<DisplayProps> = ({ userinput })=> {
   const ctx = useContext(Context);
   //  const userinput =ctx.countryValue
 
@@ -27,15 +42,14 @@ const Display = ({ userinput }) => {
     variables: { userCountry: `${userinput}` },
   });
 
- let content;
+  let content;
   if (loading) {
-    return <Loading/>
+    return <Loading />;
   }
   // if (error) {
   //   return content = <p>An error has occured {error.status}!</p>
   // }
-
-  return data.Country.map(({ name, flag, capital, continents, population }) => (
+  return data.Country.map(({ name, flag, capital, continents, population }:Country) => (
     <Card key={name.official} className="display">
       <div>
         <h3>

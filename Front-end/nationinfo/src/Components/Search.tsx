@@ -15,6 +15,12 @@ const LIST_COUNTRIES = gql`
   }
 `;
 
+
+interface name {
+  common:string;
+  official:string;
+}
+
 function Search() {
   const ctx = useContext(Context);
 
@@ -29,7 +35,7 @@ function Search() {
   const [userinput, setuserinput] = useState("Iceland");
   const [isSubmitted, setisSubmitted] = useState(false);
 
-  const selectHandler = (event) => {
+  const selectHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setuserinput(event.target.value);
   };
 
@@ -41,7 +47,7 @@ function Search() {
     <>
       <div className="search">
         <select value={userinput} onChange={selectHandler}>
-          {data.Select.map(({ common, official }) => (
+          {data.Select.map(({ common, official }:name) => (
             <option key={official} value={common}>
               {common}
             </option>
