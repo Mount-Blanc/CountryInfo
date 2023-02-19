@@ -26,7 +26,7 @@ function Search() {
   //   nextFetchPolicy: 'cache-first', // Used for subsequent executions
 
   // });
-  const [userinput, setuserinput] = useState("United States");
+  const [userinput, setuserinput] = useState("Iceland");
   const [isSubmitted, setisSubmitted] = useState(false);
 
   const selectHandler = (event) => {
